@@ -21,4 +21,4 @@ deploy-counter:
 		--private-keys $(PRIVATE_KEY) \
 	@echo "Counter deployment complete!"
 	@echo "Writing ABI to ./abi/Counter.json"
-	$(FORGE) inspect ./src/Counter.sol:Counter --json > ./abi/Counter.json
+	$(FORGE) inspect ./src/Counter.sol:Counter abi --json > ./abi/Counter.json
