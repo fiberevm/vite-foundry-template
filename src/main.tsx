@@ -5,7 +5,7 @@ import { WagmiProvider } from "wagmi";
 import { ConnectKitProvider } from "connectkit";
 import { config } from "./config";
 import App from "./App.tsx";
-import "global.css";
+import "./global.css";
 
 const queryClient = new QueryClient();
 
