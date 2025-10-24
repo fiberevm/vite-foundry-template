@@ -1,5 +1,3 @@
-import "./App.css";
-
 // This is the starting point for the new app. Make sure to replace the contents of this component completely
 // with the user requested app and remove this comment. Do not append things here.
 
