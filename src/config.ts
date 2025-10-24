@@ -1,5 +1,5 @@
 import { createConfig } from "wagmi";
-import { injected } from "wagmi/connectors";
+import { injected, walletConnect } from "wagmi/connectors";
 import { defineChain, webSocket } from "viem";
 
 // Define Fiber EVM Testnet
@@ -28,7 +28,13 @@ export const fiberTestnet = defineChain({
 
 export const config = createConfig({
   chains: [fiberTestnet],
-  connectors: [injected()],
+  connectors: [
+    injected(),
+    walletConnect({
+      projectId: "", // Optional: add your WalletConnect project ID
+      showQrModal: false,
+    }),
+  ],
   transports: {
     [fiberTestnet.id]: webSocket(),
   },

@@ -15,7 +15,6 @@ deploy-counter:
 		--broadcast \
 		--sender $(SENDER) \
 		--private-keys $(PRIVATE_KEY) \
-		| tee ./logs/counter_deployment.log
 	@echo "Counter deployment complete!"
 	@echo "Writing ABI to ./abi/Counter.json"
 	forge inspect ./src/Counter.sol:Counter --json > ./abi/Counter.json

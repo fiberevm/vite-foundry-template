@@ -1,43 +1,107 @@
-import { useAccount } from "wagmi";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { ConnectKitButton } from "connectkit";
 import "./App.css";
-import { Account } from "./components/Account";
-import { WalletOptions } from "./components/WalletOptions";
 import { Counter } from "./components/Counter";
-
-function ConnectWallet() {
-  const { isConnected } = useAccount();
-  if (isConnected)
-    return (
-      <>
-        <Account />
-        <Counter />
-      </>
-    );
-  return <WalletOptions />;
-}
 
 function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-black flex items-center justify-center p-6">
+      <div className="max-w-5xl w-full">
+        <div className="flex flex-col items-center text-center space-y-16">
+          {/* Logo/Brand */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-3 mb-4 justify-center">
+              <svg
+                aria-label="Fiber Logo"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white"
+              >
+                <title>Fiber Logo</title>
+                <rect
+                  x="12"
+                  y="8"
+                  width="16"
+                  height="2"
+                  fill="currentColor"
+                  rx="1"
+                />
+                <rect
+                  x="8"
+                  y="13"
+                  width="20"
+                  height="2"
+                  fill="currentColor"
+                  rx="1"
+                />
+                <rect
+                  x="4"
+                  y="18"
+                  width="24"
+                  height="2"
+                  fill="currentColor"
+                  rx="1"
+                />
+                <rect
+                  x="0"
+                  y="23"
+                  width="28"
+                  height="2"
+                  fill="currentColor"
+                  rx="1"
+                />
+              </svg>
+              <h1 className="text-4xl font-normal tracking-tight text-white">
+                fiber
+              </h1>
+            </div>
+          </div>
+
+          {/* Main content */}
+          <div className="space-y-12 max-w-2xl">
+            <div className="space-y-6">
+              <div className="text-gray-500 text-sm font-medium tracking-wider">
+                01
+              </div>
+              <h2 className="text-5xl md:text-6xl font-normal text-white leading-tight">
+                The Realtime Blockchain
+              </h2>
+            </div>
+
+            <p className="text-lg text-gray-400 leading-relaxed">
+              Building the future of decentralized applications.
+            </p>
+          </div>
+
+          {/* Status indicator */}
+          <div className="flex items-center gap-3 text-gray-500 text-sm">
+            <div className="flex gap-1">
+              <div
+                className="w-1.5 h-1.5 bg-gray-600 rounded-full animate-pulse"
+                style={{ animationDelay: "0ms" }}
+              ></div>
+              <div
+                className="w-1.5 h-1.5 bg-gray-600 rounded-full animate-pulse"
+                style={{ animationDelay: "150ms" }}
+              ></div>
+              <div
+                className="w-1.5 h-1.5 bg-gray-600 rounded-full animate-pulse"
+                style={{ animationDelay: "300ms" }}
+              ></div>
+            </div>
+            <span>Your app is getting built</span>
+          </div>
+
+          <Counter />
+
+          <div className="space-y-6 flex flex-col items-center">
+            <ConnectKitButton />
+          </div>
+        </div>
       </div>
-      <h1>Vite + React + Foundry</h1>
-      <div className="card">
-        <h2>Connect Your Wallet</h2>
-        <ConnectWallet />
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 

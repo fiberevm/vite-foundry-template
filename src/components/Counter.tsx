@@ -55,41 +55,41 @@ export function Counter() {
   };
 
   return (
-    <div style={{ marginTop: "2rem" }}>
-      <h2>Counter Contract</h2>
-      <div style={{ fontSize: "2rem", margin: "1rem 0" }}>
-        Count: {isLoading ? "Loading..." : count?.toString() ?? "N/A"}
+    <div className="space-y-8 w-full max-w-md">
+      <div className="space-y-4">
+        <div className="text-gray-500 text-sm font-medium tracking-wider">
+          02
+        </div>
+        <h2 className="text-3xl font-normal text-white">Counter Contract</h2>
       </div>
-      {readError && (
-        <div style={{ marginTop: "0.5rem", color: "#f87171" }}>
-          Error: {readError.message}
+
+      <div className="space-y-6">
+        <div className="text-6xl font-light text-white tabular-nums">
+          {isLoading ? (
+            <span className="text-gray-600">...</span>
+          ) : (
+            count?.toString() ?? "N/A"
+          )}
         </div>
-      )}
-      <button
-        onClick={handleIncrement}
-        disabled={isPending}
-        style={{
-          padding: "0.6em 1.2em",
-          fontSize: "1em",
-          fontWeight: 500,
-          fontFamily: "inherit",
-          cursor: isPending ? "not-allowed" : "pointer",
-          opacity: isPending ? 0.6 : 1,
-        }}
-      >
-        {isPending ? "Processing..." : "Increment"}
-      </button>
-      {/* {txResult?.hash && (
-        <div style={{ marginTop: "1rem", fontSize: "0.9em" }}>
-          Transaction Hash: {txResult.hash.slice(0, 10)}...
-          {txResult.hash.slice(-8)}
-        </div>
-      )} */}
-      {isSuccess && (
-        <div style={{ marginTop: "0.5rem", color: "#4ade80" }}>
-          Transaction confirmed! ✓
-        </div>
-      )}
+
+        {readError && (
+          <div className="text-red-400 text-sm">Error: {readError.message}</div>
+        )}
+
+        <button
+          onClick={handleIncrement}
+          className="px-8 py-3 bg-white text-black font-medium hover:bg-gray-200 transition-colors"
+        >
+          Increment
+        </button>
+
+        {isSuccess && (
+          <div className="text-green-400 text-sm flex items-center gap-2">
+            <span>✓</span>
+            <span>Transaction confirmed</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

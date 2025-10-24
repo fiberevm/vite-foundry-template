@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
+import ViteRestart from "vite-plugin-restart";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +11,10 @@ export default defineConfig({
       babel: {
         plugins: [["babel-plugin-react-compiler"]],
       },
+    }),
+    tailwindcss(),
+    ViteRestart({
+      restart: ["package.json"],
     }),
   ],
   resolve: {
