@@ -1,6 +1,10 @@
 # Default deployment target
 .PHONY: deploy-all deploy-counter
 
+# Forge binaries
+FORGE = ~/.foundry/bin/forge
+CAST = ~/.foundry/bin/cast
+
 # Network configuration
 RPC_URL = http://18.222.111.101:8545
 SENDER = 0x38421c898cfC5883ddCEC1247EA3f7Ff087Dd6ca
@@ -10,11 +14,11 @@ deploy-all: deploy-counter
 
 deploy-counter:
 	@echo "Deploying Counter..."
-	forge script ./script/Counter.s.sol:CounterScript -vvv \
+	$(FORGE) script ./script/Counter.s.sol:CounterScript -vvv \
 		--fork-url $(RPC_URL) \
 		--broadcast \
 		--sender $(SENDER) \
 		--private-keys $(PRIVATE_KEY) \
 	@echo "Counter deployment complete!"
 	@echo "Writing ABI to ./abi/Counter.json"
-	forge inspect ./src/Counter.sol:Counter --json > ./abi/Counter.json
+	$(FORGE) inspect ./src/Counter.sol:Counter --json > ./abi/Counter.json

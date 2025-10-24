@@ -4,7 +4,7 @@ import {
   useWatchContractEvent,
 } from "wagmi";
 import { COUNTER_ADDRESS } from "@/contract_addresses";
-import COUNTER_ABI from "@/forge/abis/Counter.json";
+import COUNTER_ABI from "@/forge/abi/Counter.json";
 import { useQueryClient } from "@tanstack/react-query";
 import { defaultSigner } from "@/src/utils/signers";
 
