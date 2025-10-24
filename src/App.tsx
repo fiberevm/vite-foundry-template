@@ -58,22 +58,6 @@ function App() {
             </div>
           </div>
 
-          {/* Main content */}
-          <div className="space-y-12 max-w-2xl">
-            <div className="space-y-6">
-              <div className="text-gray-500 text-sm font-medium tracking-wider">
-                01
-              </div>
-              <h2 className="text-5xl md:text-6xl font-normal text-white leading-tight">
-                The Realtime Blockchain
-              </h2>
-            </div>
-
-            <p className="text-lg text-gray-400 leading-relaxed">
-              Building the future of decentralized applications.
-            </p>
-          </div>
-
           {/* Status indicator */}
           <div className="flex items-center gap-3 text-gray-500 text-sm">
             <div className="flex gap-1">
