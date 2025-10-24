@@ -10,22 +10,10 @@ contract CounterScript is Script {
     function setUp() public {}
 
     function run() public {
-        // Compute the expected address for the next deployment
-        address deployer = msg.sender;
-        uint64 nonce = vm.getNonce(deployer);
-        address expectedAddress = vm.computeCreateAddress(deployer, nonce);
-
         vm.startBroadcast();
 
-        // Check if a contract already exists at the expected address
-        if (expectedAddress.code.length > 0) {
-            console.log("Counter already deployed at:", expectedAddress);
-            counter = Counter(expectedAddress);
-        } else {
-            console.log("Deploying new Counter...");
-            counter = new Counter();
-            console.log("Counter deployed at:", address(counter));
-        }
+        counter = new Counter();
+        console.log("Counter deployed at:", address(counter));
 
         vm.stopBroadcast();
 

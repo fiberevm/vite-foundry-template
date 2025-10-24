@@ -3,8 +3,8 @@
 
 # Network configuration
 RPC_URL = http://18.222.111.101:8545
-SENDER = 0x2557794Bf452ec0a9cB923B03b2D2fb550E17357
-PRIVATE_KEY = d27798744baaa809fb04fa587023a3f80dfae7a9f6a2978d1fad89571d84d478
+SENDER = 0x38421c898cfC5883ddCEC1247EA3f7Ff087Dd6ca
+PRIVATE_KEY = e444a661e2860b70afce0f6f065526889d6312dec69531968eb6dada85daf40d
 
 deploy-all: deploy-counter
 
@@ -17,3 +17,5 @@ deploy-counter:
 		--private-keys $(PRIVATE_KEY) \
 		| tee ./logs/counter_deployment.log
 	@echo "Counter deployment complete!"
+	@echo "Writing ABI to ./abi/Counter.json"
+	forge inspect ./src/Counter.sol:Counter --json > ./abi/Counter.json
