@@ -83,6 +83,13 @@ export function Counter() {
           Increment
         </button>
 
+        {isPending && (
+          <div className="text-yellow-400 text-sm flex items-center gap-2">
+            <span>...</span>
+            <span>Transaction pending</span>
+          </div>
+        )}
+
         {isSuccess && (
           <div className="text-green-400 text-sm flex items-center gap-2">
             <span>✓</span>
