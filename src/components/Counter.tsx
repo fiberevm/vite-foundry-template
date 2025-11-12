@@ -1,12 +1,9 @@
-import {
-  useReadContract,
-  useWriteContract,
-  useWatchContractEvent,
-} from "wagmi";
+import { useReadContract, useWriteContract } from "wagmi";
 import { COUNTER_ADDRESS } from "@/src/contract_addresses";
 import COUNTER_ABI from "@/forge/abi/Counter.json";
 import { useQueryClient } from "@tanstack/react-query";
 import { defaultSigner } from "@/src/utils/signers";
+import { useWatchContractEvent } from "@/src/hooks/useWatchContractEvent";
 
 export function Counter() {
   const queryClient = useQueryClient();
@@ -25,7 +22,6 @@ export function Counter() {
     address: COUNTER_ADDRESS,
     abi: COUNTER_ABI,
     eventName: "NumberSet",
-    // @ts-expect-error -  "pending" is not typed
     fromBlock: "pending",
     onLogs: (logs) => {
       console.log("logs", logs);
@@ -44,8 +40,9 @@ export function Counter() {
         address: COUNTER_ADDRESS,
         abi: COUNTER_ABI,
         functionName: "increment",
-        // Always set gasPrice to 0n for gasless transactions
-        gasPrice: 0n,
+        gas: 200000n,
+        // Always set gasPrice to 1n for gasless transactions
+        gasPrice: 1n,
       });
 
       console.log("tx", tx);

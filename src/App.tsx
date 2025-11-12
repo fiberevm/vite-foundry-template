@@ -1,6 +1,9 @@
 // This is the starting point for the new app. Make sure to replace the contents of this component completely
 // with the user requested app and remove this comment. Do not append things here.
 
+import { Counter } from "@/src/components/Counter";
+import { ConnectKitButton } from "connectkit";
+
 function App() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-6">
@@ -75,6 +78,8 @@ function App() {
               ></div>
             </div>
             <span>Your app is getting built</span>
+            <Counter />
+            <ConnectKitButton />
           </div>
         </div>
       </div>

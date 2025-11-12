@@ -6,7 +6,7 @@ FORGE = ~/.foundry/bin/forge
 CAST = ~/.foundry/bin/cast
 
 # Network configuration
-RPC_URL = http://18.222.111.101:8545
+RPC_URL = https://rpc.fiber.so
 SENDER = 0x38421c898cfC5883ddCEC1247EA3f7Ff087Dd6ca
 PRIVATE_KEY = e444a661e2860b70afce0f6f065526889d6312dec69531968eb6dada85daf40d
 

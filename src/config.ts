@@ -13,8 +13,8 @@ export const fiberTestnet = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ["http://18.222.111.101:8545"],
-      webSocket: ["ws://18.222.111.101:8546"],
+      http: ["https://rpc.fiber.so"],
+      webSocket: ["wss://rpc.fiber.so"],
     },
   },
   blockExplorers: {
