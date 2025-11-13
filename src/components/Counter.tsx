@@ -41,8 +41,8 @@ export function Counter() {
         abi: COUNTER_ABI,
         functionName: "increment",
         gas: 200000n,
-        // Always set gasPrice to 1n for gasless transactions
-        gasPrice: 1n,
+        // Always set gasPrice to 0n for gasless transactions
+        gasPrice: 0n,
       });
 
       console.log("tx", tx);
